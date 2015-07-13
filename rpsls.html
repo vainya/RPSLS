@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock Paper Scissors Lizard Spock</title>
+
+<script type="text/javascript">
+
+
+
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//var result = getRandomInt(0,5);
+
+//document.write(result);
+
+function number_to_name(number){
+	
+    if (number == 0){
+        number = "rock";
+		
+	}else if (number == 1){
+		number = "spock";	
+		
+	} else if(number == 2){
+		 number = "paper";
+		
+	}else if(number == 3){
+		number = "lizard";
+			
+	} else if(number == 4){
+		number = "scissors";
+			
+	 }else{
+	    number = "Please use a number from 1-4.";
+				
+	}
+	
+
+       
+	
+	    return number;
+}
+	
+	
+	
+function name_to_number(name){
+	
+	if (name == "rock"){
+     name = 0;
+		
+	}else if (name == "spock"){
+     name = 1;	
+		
+	} else if(name == "paper"){
+	  name = 2;
+		
+	}else if(name == "lizard"){
+	  name = 3;
+			
+	} else if(name == "scissors"){
+	  name = 4;
+			
+	}else{
+	 name = "Please choose rock, paper, scissors, lizard, or spock.";
+				
+	}
+	  
+	  
+	  
+			
+			
+		  return name;
+}
+
+	
+	
+function rpsls(name){
+	
+   //convert name to player_number using name_to_number
+   var  player_number = name_to_number(name);
+
+    //compute random guess for comp_number using random.randrange()
+   var comp_number = getRandomInt(0,4);
+   var game_results = 0;
+   //compute difference of player_number and comp_number modulo five
+   var game_results = Math.abs((comp_number - player_number));
+	
+      
+    
+    //use if/elif/else to determine winner
+	
+	var message = "";
+    
+	if (game_results == 0){
+		
+	message = "Player and computer tie!";	
+	} else if(game_results == 1 || game_results == 2){
+		
+		message = "Computer wins!";
+	} else if(game_results == 3 || game_results == 4){
+		   message = "Player wins!";
+	}
+	
+    
+	//document.write("Player chooses "+ number_to_name(player_number)+ "<br>");
+	document.write("Player chooses "+ name+ "<br>");
+    
+    document.write("Computer chooses "+ number_to_name(comp_number)+ "<br>");
+    
+    document.write(comp_number+  "/"+ player_number+ "/"+game_results+ "/"+ message+ "<br><br>");
+	//document.write( message+ "<br><br>");
+   
+   
+	
+	return name;
+   }
+   
+function choose_rpsls(){
+
+var input = window.prompt("Please Enter Rock, Paper, Scissors, Lizard, or Spock:");
+return input.toLowerCase();
+}
+
+var choice = choose_rpsls();
+   
+rpsls(choice);
+
+
+
+//rpsls("rock");
+/*rpsls("Spock");
+rpsls("paper");
+rpsls("lizard");
+rpsls("scissors");*/
+
+
+
+//var result = getRandomInt(0,5);
+
+//document.write(result);
+
+
+
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>
